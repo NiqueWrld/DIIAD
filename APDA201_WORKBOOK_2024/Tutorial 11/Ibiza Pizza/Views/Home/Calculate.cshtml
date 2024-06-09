@@ -1,0 +1,35 @@
+﻿@model Ibiza_Pizza.Models.Calculate
+@{
+    ViewBag.Title = "Calculate";
+}
+
+<h1>Pizza Sale</h1>
+
+@using (Html.BeginForm("Calculate", "Home", FormMethod.Post))
+{
+    <div>
+        <p>Cash Tendered</p>
+        <p>@Html.EditorFor(x => x.cashTendered)</p>
+        <p>@Html.ValidationMessageFor(x => x.cashTendered)</p>
+    </div>
+
+    <div>
+        <p>Select pizza type:</p>
+        <p>Veg @Html.RadioButtonFor(x => x.pizzaType, "Veg")</p>
+        <p>Chicken @Html.RadioButtonFor(x => x.pizzaType, "Chicken")</p>
+    </div>
+
+    <div>
+        <p>Pizza slices in quantity</p>
+        <p>@Html.EditorFor(x => x.pizzaQuantity)</p>
+        <p>@Html.ValidationMessageFor(x => x.pizzaQuantity)</p>
+    </div>
+
+    <input type="submit" value="calculate" />
+
+    <div>
+        <p>Your amount spent : R @Html.DisplayFor(x => x.amountSpent)</p>
+        <p>Your change is : R @Html.DisplayFor(x => x.change)</p>
+    </div>
+
+}
